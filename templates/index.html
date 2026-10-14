@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<main class="welcome-page">
+    <h1>Hi, welcome to our restaurant</h1>
+    <p>Click the button below to start your order.</p>
+    <div class="order-form">
+        <a class="button-link" href="{{ url_for('bestilling') }}">Place order</a>
+    </div>
+</main>

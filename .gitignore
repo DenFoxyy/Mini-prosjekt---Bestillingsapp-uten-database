@@ -1,0 +1,11 @@
+# Python virtual environments
+.venv/
+venv/
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
+
+# Python cache files
+__pycache__/
+*.py[cod]

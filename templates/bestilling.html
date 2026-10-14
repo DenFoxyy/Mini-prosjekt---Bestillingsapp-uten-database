@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<main class="page">
+    <section class="top">
+        <p class="small-text">Bestill online</p>
+        <h1>Lag din bestilling</h1>
+        <p class="info">Velg favoritten din og send inn bestillingen i løpet av noen sekunder.</p>
+    </section>
+
+    <div class="layout">
+        <form id="bestilling" class="form-box" action="{{ url_for('bestilling') }}" method="post">
+            <div class="input-group">
+                <label for="navn">Navn</label>
+                <input type="text" id="navn" name="navn" placeholder="Skriv inn navnet ditt" required>
+            </div>
+
+            <div class="input-group">
+                <label for="produkt">Produkt</label>
+                <select id="produkt" name="produkt" required>
+                    {% for produkt in produkter %}
+                        <option value="{{ produkt.name }}">{{ produkt.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="two-cols">
+                <div class="input-group">
+                    <label for="storrelse">Størrelse</label>
+                    <select id="storrelse" name="storrelse" required>
+                        <option value="Liten">Liten</option>
+                        <option value="Middels" selected>Middels</option>
+                        <option value="Stor">Stor</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="antall">Antall</label>
+                    <input type="number" id="antall" name="antall" min="1" value="1" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="kommentar">Kommentar</label>
+                <textarea id="kommentar" name="kommentar" rows="4" placeholder="Ekstra ønsket, allergener eller kommentarer..."></textarea>
+            </div>
+
+            <div class="order-button">
+                <button type="submit">Send bestilling</button>
+            </div>
+        </form>
+
+        <aside class="side-panel">
+            <h2>Populært nå</h2>
+            <div class="product-list">
+                {% for produkt in produkter %}
+                    <article class="product-item">
+                        <img src="{{ url_for('static', filename='images/' + produkt.image) }}" alt="{{ produkt.name }}">
+                        <span>{{ produkt.name }}</span>
+                    </article>
+                {% endfor %}
+            </div>
+        </aside>
+    </div>
+</main>

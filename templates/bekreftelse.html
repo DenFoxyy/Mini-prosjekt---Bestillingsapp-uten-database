@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<main id="bekreftelse">
+    <h1>Takk for bestillingen!, {{ navn }}</h1>
+
+    <div class="bestilling-detaljer">
+        <p>Navn: {{ navn }}</p>
+        <p>Produkt: {{ produkt }}</p>
+        <p>Størrelse: {{ storrelse }}</p>
+        <p>Antall: {{ antall }}</p>
+
+        {% if kommentar %}
+            <p>Kommentar: {{ kommentar }}</p>
+        {% endif %}
+    </div>
+</main>
